@@ -52,7 +52,7 @@ if($interval == 'Daily'){             // if they picked daily
   if($amount > 0){    // if still money left to be paid
  	echo "<tr>";
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
-	echo "<td>$" . $amount ."</td>";       
+	echo "<td>$" . round($amount,2) ."</td>";       
 	echo "</tr>";        //outputs date and amount left to be paid
 
 	$date->add(new DateInterval('P1D')); //increases date by 1 day
@@ -76,7 +76,7 @@ if($interval == 'Weekly'){ //same logic but for weekly
   if($amount > 0){
  	echo "<tr>";
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
-	echo "<td>$" . $amount ."</td>";
+	echo "<td>$" . round($amount,2) ."</td>";
 	echo "</tr>";
 	$date->add(new DateInterval('P1W')); //here increases by 1 week
    }	
@@ -99,7 +99,7 @@ if($interval == 'Monthly'){ //same logic but for monthly
   if($amount > 0){
  	echo "<tr>";
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
-	echo "<td>$" . $amount ."</td>";
+	echo "<td>$" .round($amount,2) ."</td>";
 	echo "</tr>";
 	$date->add(new DateInterval('P1M')); 
 	//here increases date by 1 month
