@@ -7,34 +7,40 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
 </head>
 <body>
-    <div class="container">
-        <H1>Loan Calculator</H1>
-        <form action="/action_page.php">
+	
+    <div class="container outer animated fadeIn test">
+        <br>
+        <H1 class="title">Loan Calculator</H1>
+        <form action="second.php" method="post">
         <div class="form-group">
             <label for="email">Start Date:</label>
-            <input type="date" class="form-control" id="email">
+            <input required name="date" type="date" class="form-control" id="email">
         </div>
             <div class="form-group">
             <label for="pwd">Loan Amount:</label>
-            <input type="number" class="form-control" id="pwd">
+            <input required name='loan' type="number" class="form-control" id="pwd">
             </div>
             <div class="form-group">
             <label for="pwd">Installment Amount:</label>
-            <input type="number" class="form-control" id="pwd">
+            <input required name="installment" type="number" class="form-control" id="pwd">
+            </div>
             <div class="form-group">
-            <label for="pwd">Interest Rate:</label>
-            <input type="number" class="form-control" id="pwd">
+            <label for="pwd">Interest Rate (in percentage):</label>
+            <input required name="rate" type="number" class="form-control" id="pwd">
+            </div>
             <div class="form-group">
                 <p>Installment interval:</p>
-            <select class="form-control drop">
-                <option value="volvo">Daily</option>
-                <option value="saab">Weekly</option>
-                <option value="mercedes">Monthly</option>
+            <select name="interval" class="form-control drop">
+                <option  value="Daily">Daily</option>
+                <option  value="Weekly">Weekly</option>
+                <option  value="Monthly">Monthly</option>
             </select>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+            <a href='second.php'><button name='submit' type="submit" class="btn btn-default submit">Get payment plan</button></a>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
