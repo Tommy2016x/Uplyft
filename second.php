@@ -19,6 +19,9 @@ if(isset($_POST['submit'])){ //if they pressed submit
 
 	$date = new DateTime($dateinput); 
 	//creates DateTime object with the parameter being the date from the input
+
+	$list = array("Payment Date,Payment Remaining");    
+	$file = fopen("payments.csv", "w");              //creates array and file for the csv storage
 }
 
 ?>
@@ -63,10 +66,20 @@ if($interval == 'Daily'){             // if they picked daily
 	echo "<td>0</td>";
 	echo "</tr>";  //outputs date and no money left to be paid
    }
+	$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).","; 
+	//creates temporary string with values that will be put into array
+
+	array_push($list, $temp);  //adds the value to the array
 	
   }
    echo "<h1> Estimated Payoff date: </h1>"; 
    echo "<h2> ". $date->format('m-d-Y')."</h2>"; //outputs the date that the last payment was on
+
+   foreach ($list as $line)
+  {
+  fputcsv($file,explode(',',$line)); //adds all the values from array to the csv file and closes it
+  }
+  fclose($file);
 }
 
 
@@ -86,10 +99,17 @@ if($interval == 'Weekly'){ //same logic but for weekly
 	echo "<td>0</td>";
 	echo "</tr>";
    }
-	
+	$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).","; 
+	array_push($list, $temp);
   }
    echo "<h1> Estimated Payoff date: </h1>"; 
    echo "<h2> ". $date->format('m-d-Y')."</h2>";
+
+   foreach ($list as $line)
+  {
+  fputcsv($file,explode(',',$line));
+  }
+  fclose($file);
 }
 
 
@@ -110,10 +130,17 @@ if($interval == 'Monthly'){ //same logic but for monthly
 	echo "<td>0</td>";
 	echo "</tr>";
    }
-	
+	$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).","; 
+	array_push($list, $temp);
   }
   echo "<h1> Estimated Payoff date: </h1>"; 
    echo "<h2> ". $date->format('m-d-Y')."</h2>";
+
+   foreach ($list as $line)
+  {
+  fputcsv($file,explode(',',$line));
+  }
+  fclose($file);
 }
 
 
@@ -121,6 +148,7 @@ if($interval == 'Monthly'){ //same logic but for monthly
 ?>
 </table>
 <a href="test.php"><button class="btn btn-default submit">Go Back</button></a>
+<a href="payments.csv"><button class="btn btn-primary download ">Download CSV</button></a>
 </div>
 </body>
 </html>

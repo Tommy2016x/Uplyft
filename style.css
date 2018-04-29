@@ -2,6 +2,12 @@ body{
     font-family: sans-serif;
 }
 
+.download{
+    position: relative;
+    bottom: 10px;
+    right: 25px;
+}
+
 .drop{
     width: 125px;
 }
