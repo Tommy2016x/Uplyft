@@ -58,16 +58,19 @@ if($interval == 'Daily'){             // if they picked daily
 	echo "<td>$" . round($amount,2) ."</td>";       
 	echo "</tr>";        //outputs date and amount left to be paid
 
+$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).",";
+//creates temporary string with values that will be put into array
+
 	$date->add(new DateInterval('P1D')); //increases date by 1 day
    }	
    else{
    	echo "<tr>";          //otherwise if everything is paid
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
-	echo "<td>0</td>";
+	echo "<td>$0</td>";
 	echo "</tr>";  //outputs date and no money left to be paid
+
+  $temp = (string) $date->format('m-d-Y') .",$0";
    }
-	$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).","; 
-	//creates temporary string with values that will be put into array
 
 	array_push($list, $temp);  //adds the value to the array
 	
@@ -91,15 +94,20 @@ if($interval == 'Weekly'){ //same logic but for weekly
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
 	echo "<td>$" . round($amount,2) ."</td>";
 	echo "</tr>";
+
+  $temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).",";
+
 	$date->add(new DateInterval('P1W')); //here increases by 1 week
    }	
    else{
    	echo "<tr>";
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
-	echo "<td>0</td>";
+	echo "<td>$0</td>";
 	echo "</tr>";
+
+  $temp = (string) $date->format('m-d-Y') .",$0";
    }
-	$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).","; 
+	 
 	array_push($list, $temp);
   }
    echo "<h1> Estimated Payoff date: </h1>"; 
@@ -121,16 +129,20 @@ if($interval == 'Monthly'){ //same logic but for monthly
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
 	echo "<td>$" .round($amount,2) ."</td>";
 	echo "</tr>";
-	$date->add(new DateInterval('P1M')); 
-	//here increases date by 1 month
+
+  $temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).",";
+
+	$date->add(new DateInterval('P1M'));  //here increases date by 1 month
    }	
    else{
    	echo "<tr>";
 	echo "<td>" . $date->format('m-d-Y') ."</td>";
-	echo "<td>0</td>";
+	echo "<td>$0</td>";
 	echo "</tr>";
+
+  $temp = (string) $date->format('m-d-Y') .",$0";
    }
-	$temp = (string) $date->format('m-d-Y') .",$" . (string) round($amount,2).","; 
+	 
 	array_push($list, $temp);
   }
   echo "<h1> Estimated Payoff date: </h1>"; 
@@ -142,8 +154,6 @@ if($interval == 'Monthly'){ //same logic but for monthly
   }
   fclose($file);
 }
-
-
 
 ?>
 </table>

@@ -18,7 +18,7 @@
         <form action="second.php" method="post">
         <div class="form-group">
             <label for="email">Start Date:</label>
-            <input required name="date" type="date" class="form-control" id="email">
+            <input  required name="date" type="date" class="form-control" id="email">
         </div>
             <div class="form-group">
             <label for="pwd">Loan Amount:</label>
