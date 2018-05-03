@@ -157,7 +157,7 @@ if($interval == 'Monthly'){ //same logic but for monthly
 
 ?>
 </table>
-<a href="test.php"><button class="btn btn-default submit">Go Back</button></a>
+<a href="index.php"><button class="btn btn-default submit">Go Back</button></a>
 <a href="payments.csv"><button class="btn btn-primary download ">Download CSV</button></a>
 </div>
 </body>
