@@ -51,4 +51,18 @@ body{
 p,label,h1{
     color: #1d3557;
 }
+#foot{
+    text-align: right;
+    background-color: #343a40;
+    position: relative;
+    top: 240px;
 
+}
+#foottext{
+    position: relative;
+    top: 19px;
+    right: 15px;
+    color:white;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+}

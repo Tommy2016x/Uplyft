@@ -34,6 +34,7 @@ if(isset($_POST['submit'])){ //if they pressed submit
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/ animate.min.css">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 </head>
 <body>
 <div class="container outer">
@@ -160,5 +161,9 @@ if($interval == 'Monthly'){ //same logic but for monthly
 <a href="index.php"><button class="btn btn-default submit">Go Back</button></a>
 <a href="payments.csv"><button class="btn btn-primary download ">Download CSV</button></a>
 </div>
+ <div id='foot' class="animated fadeIn">
+  <p id='foottext'>Made with <i class="em em-hearts"></i> by Tommy Carrascal</p>
+  <br>
+  </div>
 </body>
 </html>
